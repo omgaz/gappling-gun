@@ -12,12 +12,15 @@ githubdesktop='https://desktop.githubusercontent.com/releases/1.3.2-ed5395e6/Git
 beyondcompare='https://www.scootersoftware.com/BCompareOSX-4.2.6.23150.zip'
 mater='https://github.com/jasonlong/mater/releases/download/v1.0.3/Mater-darwin-x64.zip'
 ubar='https://brawersoftware.com/downloads/ubar/ubar.zip'
+appcleaner='https://freemacsoft.net/downloads/AppCleaner_3.4.zip'
+gitup='https://s3-us-west-2.amazonaws.com/gitup-builds/stable/GitUp.zip'
+vscode='https://az764295.vo.msecnd.net/stable/1dfc5e557209371715f655691b1235b6b26a06be/VSCode-darwin-stable.zip'
 
 imageoptim='https://imageoptim.com/ImageOptim.tbz2'
 imagealpha='https://pngmini.com/ImageAlpha1.5.1.tar.bz2'
 
 
-declare -a apps=($vbox $ubar $typora $st3 $postbox $licecap $imageoptim $imagealpha $hyper $githubdesktop $firefox $chrome $beyondcompare $mater)
+declare -a apps=($vbox $ubar $appcleaner $vscode $gitup $typora $st3 $postbox $licecap $imageoptim $imagealpha $hyper $githubdesktop $firefox $chrome $beyondcompare $mater)
 
 echo "→ Installing Homebrew Packages…"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -35,7 +38,7 @@ done
 
 echo "→ Installing Zips…"
 
-# ubar, mater, beyond-compare, github desktop
+# ubar, mater, beyond-compare, github desktop, app cleaner, gitup, vscode
 unzip -q *.zip
 
 # imageoptim, imagealpha
