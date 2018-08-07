@@ -19,6 +19,12 @@ imagealpha='https://pngmini.com/ImageAlpha1.5.1.tar.bz2'
 
 declare -a apps=($vbox $ubar $typora $st3 $postbox $licecap $imageoptim $imagealpha $hyper $githubdesktop $firefox $chrome $beyondcompare $mater)
 
+echo "→ Installing Homebrew Packages…"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install git graphicsmagick
+brew cask install hyper font-hack font-montserrat font-roboto font-roboto-mono
+
 echo "↓ Downloading…"
 for appurl in "${apps[@]}"; do
   echo $appurl
@@ -59,8 +65,13 @@ for pkg in /Volumes/*/*.pkg; do
   hdiutil unmount -quiet "$pkgdirname"
 done
 
-echo "→ Installing Homebrew Packages…"
-brew install graphicsmagick
-brew cask install hyper font-hack font-montserrat font-roboto font-roboto-mono
+echo "→ Installing NodeJS…"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+echo "write-good\nalex\nproselint\npure-prompt\nserve\nsvgo\nfast-cli" >> $NVM_DIR/default-packages
+nvm install --lts=carbon
+nvm use --lts=carbon
+
+echo "→ Installing Oh My Zsh…"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "✓ Complete."

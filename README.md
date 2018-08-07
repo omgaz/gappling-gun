@@ -8,13 +8,15 @@ A bash script that takes in an array of URLs, downloads the `.dmg`, `.zip`, `.tb
 
 ## Automate :robot:
 
-For a new machine install homebrew and git, clone the repo, run the gappling gun:
+via `curl`
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/omgaz/gappling-gun/master/run.sh)"
+```
+
+If you have git clone the repo, and run the gappling gun:
 
 ```shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install git
-# … or just clone the repo if you already have the above
 git clone https://github.com/omgaz/gappling-gun
 cd gappling-gun
 chmod +x ./run.sh
@@ -26,6 +28,32 @@ chmod +x ./run.sh
 > Go grab a coffee
 
 Don't worry if a bunch of windows appear, let it do its thing, it'll unmount when its done
+
+## What's included
+
+* Typora
+* LiceCap
+* Chrome
+* Sublime Text 3
+* Firefox
+* Postbox
+* Virtual Box
+* GitHub Desktop
+* Beyond Compare
+* Mater
+* uBar
+* Image Optim
+* Image Alpha
+* Graphics Magick
+* Hyper
+* font-hack
+* font-montserrat
+* font-roboto
+* font-roboto-mono
+* NodeJS
+* NPM
+* NVM
+* Oh My Zsh
 
 ## Known Issues :bug:
 
