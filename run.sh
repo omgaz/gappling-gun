@@ -4,9 +4,10 @@ typora='https://typora.io/download/Typora.dmg'
 licecap='https://www.cockos.com/licecap/licecap128.dmg'
 chrome='https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg'
 st3='https://download.sublimetext.com/Sublime%20Text%20Build%203176.dmg'
-firefox='https://download-installer.cdn.mozilla.net/pub/firefox/releases/61.0.1/mac/en-GB/Firefox%2061.0.1.dmg'
+firefox='https://download-installer.cdn.mozilla.net/pub/firefox/releases/61.0.2/mac/en-GB/Firefox%2061.0.2.dmg'
 postbox='https://d3nx85trn0lqsg.cloudfront.net/mac/postbox-6.1.1-mac64.dmg'
 vbox='https://download.virtualbox.org/virtualbox/5.2.16/VirtualBox-5.2.16-123759-OSX.dmg'
+slack='https://downloads.slack-edge.com/mac_releases/Slack-3.2.0.dmg'
 
 githubdesktop='https://desktop.githubusercontent.com/releases/1.3.2-ed5395e6/GitHubDesktop.zip'
 beyondcompare='https://www.scootersoftware.com/BCompareOSX-4.2.6.23150.zip'
@@ -20,7 +21,7 @@ imageoptim='https://imageoptim.com/ImageOptim.tbz2'
 imagealpha='https://pngmini.com/ImageAlpha1.5.1.tar.bz2'
 
 
-declare -a apps=($vbox $ubar $appcleaner $vscode $gitup $typora $st3 $postbox $licecap $imageoptim $imagealpha $hyper $githubdesktop $firefox $chrome $beyondcompare $mater)
+declare -a apps=($vbox $ubar $appcleaner $vscode $gitup $typora $st3 $postbox $licecap $imageoptim $imagealpha $slack $githubdesktop $firefox $chrome $beyondcompare $mater)
 
 echo "→ Installing Homebrew Packages…"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
