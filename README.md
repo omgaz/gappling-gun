@@ -1,46 +1,41 @@
-## Gappling Gun :gun:
+## Simple MacOS X Dev Setup with G**app**ling Gun :gun:
 
-Gappling Gun is an automated app installer for MacOS that sets up everyting I need.
+Starting a new job or upgrading your Mac and hate all the boilerplate involved in getting set-up how you like. G**app**ling Gun is an automated app installer for Mac that sets up everything you need for your development environment.
 
-git, node, brew, ohmyzsh, firefox and chrome amongst others
+## Automate FTW :robot:
 
-## Automate :robot:
-
-One liner magic :sparkles:
+One liner magic, with `⌘ C` and `⌘ V` :sparkles:
 
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/omgaz/gappling-gun/master/run.sh)"
 ```
 
+Then enter some details to give access and options to the script.
+
 ## Relax :coffee:
 
-> Go grab a coffee
+> Grab yourself a coffee, you deserve it!
 
 ## What's included
 
-* Typora
-* LiceCap
-* Chrome
-* Sublime Text 3
-* Firefox
-* Postbox
-* Virtual Box
-* GitHub Desktop
-* Beyond Compare
-* Mater
-* uBar
-* Image Optim
-* Image Alpha
-* Graphics Magick
-* Hyper
-* font-hack
-* font-montserrat
-* font-roboto
-* font-roboto-mono
-* NodeJS
-* NPM
-* NVM
-* Oh My Zsh
+- Beyond Compare
+- Chrome
+- Firefox
+- Fonts: Hack, Montserrat, Roboto, Roboto Mono And Cascadia
+- GitHub Desktop
+- Graphics Magick
+- Image Alpha
+- Image Optim
+- LiceCap
+- Mater
+- NodeJS
+- NPM
+- Oh My Zsh
+- Postbox
+- Typora
+- uBar
+- Virtual Box
+- Visual Studio Code (and extensions)
 
 ## What's not included
 
