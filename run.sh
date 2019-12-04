@@ -28,7 +28,7 @@ brew cask install firefox font-cascadia font-hack font-montserrat font-roboto fo
 echo "  … visual studio code"
 brew cask install visual-studio-code
 
-curl -fsSL $vscodesettings Support/Code/User/settings.json >>~/Library/Application
+curl -fsSL $vscodesettings >>"~/Library/Application Support/Code/User/settings.json"
 
 code --install-extension aaron-bond.better-comments
 code --install-extension aeschli.vscode-css-formatter
