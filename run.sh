@@ -58,6 +58,9 @@ echo "→ Configuring Git…"
 git config --global user.name $name
 git config --global user.email $email
 git config --global credential.helper osxkeychain
+touch ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+echo ".vscode" >>~/.gitignore_global
 
 echo "→ Installing NodeJS/NPM stuff…"
 n 8
