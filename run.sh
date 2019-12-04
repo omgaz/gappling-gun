@@ -7,12 +7,12 @@ echo "Cool, and your password for those sudo commands:"
 sudo -v
 echo "Awesome, let's go!"
 echo "Copy and paste your .zshrc url from gist"
-echo "Enter your .zshrc gist url [https://gist.githubusercontent.com/omgaz/61819cd3f8e9c19cdee8cffdfb794cac/raw/7e91ee2d67830abcad28f1ddce0a36f3d0ba7652/.zshrc]: "
+echo "Enter your .zshrc gist url [https://gist.githubusercontent.com/omgaz/61819cd3f8e9c19cdee8cffdfb794cac/raw/.zshrc]: "
 read zshrcraw
-zshrcraw=${zshrcraw:-https://gist.githubusercontent.com/omgaz/61819cd3f8e9c19cdee8cffdfb794cac/raw/7e91ee2d67830abcad28f1ddce0a36f3d0ba7652/.zshrc}
-echo "Copy and paste your vscode settings url from gist [https://gist.githubusercontent.com/omgaz/759a7100095c2a3001d6ccc541b1e50e/raw/d6bfb2aa2a3ea2d4f3c88c24abf08e8b42a2f7ac/settings.json]: "
+zshrcraw=${zshrcraw:-https://gist.githubusercontent.com/omgaz/61819cd3f8e9c19cdee8cffdfb794cac/raw/.zshrc}
+echo "Copy and paste your vscode settings url from gist [https://gist.githubusercontent.com/omgaz/759a7100095c2a3001d6ccc541b1e50e/raw/settings.json]: "
 read vscodesettings
-vscodesettings=${vscodesettings:-https://gist.githubusercontent.com/omgaz/759a7100095c2a3001d6ccc541b1e50e/raw/d6bfb2aa2a3ea2d4f3c88c24abf08e8b42a2f7ac/settings.json}
+vscodesettings=${vscodesettings:-https://gist.githubusercontent.com/omgaz/759a7100095c2a3001d6ccc541b1e50e/raw/settings.json}
 
 sudo chown -R $(whoami) /usr/local
 
