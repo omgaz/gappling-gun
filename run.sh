@@ -56,12 +56,6 @@ git config --global user.name $name
 git config --global user.email $email
 git config --global credential.helper osxkeychain
 
-echo "→ Installing Oh My Zsh…"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-curl -fsSL $zshrcraw >>~/.zshrc
-zsh
-
 echo "→ Installing NodeJS/NPM stuff…"
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
@@ -83,5 +77,11 @@ curl -# -L -O https://github.com/jasonlong/mater/releases/download/$materVer/Mat
 unzip -q *.zip
 mv *.app /Applications
 rm -rf Mater-darwin-x64.zip
+
+echo "→ Installing Oh My Zsh…"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+curl -fsSL $zshrcraw >>~/.zshrc
+zsh
 
 echo "✓ Complete."
