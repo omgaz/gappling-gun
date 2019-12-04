@@ -28,7 +28,7 @@ brew cask install firefox font-cascadia font-hack font-montserrat font-roboto fo
 echo "  … visual studio code"
 brew cask install visual-studio-code
 
-curl -fsSL $vscodesettings >>~/Library/Application Support/Code/User/settings.json
+curl -fsSL $vscodesettings Support/Code/User/settings.json >>~/Library/Application
 
 code --install-extension aaron-bond.better-comments
 code --install-extension aeschli.vscode-css-formatter
@@ -83,17 +83,17 @@ echo "→ Homebrewing less important stuff…"
 
 brew cask install appcleaner beyond-compare docker imagealpha imageoptim typora ubar
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk8
+brew cask install adoptopenjdk8 react-native-debugger
 brew install watchman redis graphicsmagick
 
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 
-materVer=$(curl https://api.github.com/repos/jasonlong/mater/releases/latest -s \
-  | grep tag_name \
-  | head -1 \
-  | awk -F: '{ print $2 }' \
-  | sed 's/[",]//g' \
-  | tr -d '[[:space:]]')
+materVer=$(curl https://api.github.com/repos/jasonlong/mater/releases/latest -s |
+  grep tag_name |
+  head -1 |
+  awk -F: '{ print $2 }' |
+  sed 's/[",]//g' |
+  tr -d '[[:space:]]')
 
 echo "→ Installing Mater $materVer…"
 curl -# -L -O https://github.com/jasonlong/mater/releases/download/$materVer/Mater-darwin-x64.zip
