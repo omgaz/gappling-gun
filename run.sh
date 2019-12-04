@@ -32,14 +32,19 @@ curl -fsSL $vscodesettings >>~/Library/Application Support/Code/User/settings.js
 
 code --install-extension aaron-bond.better-comments
 code --install-extension aeschli.vscode-css-formatter
+code --install-extension christian-kohler.npm-intellisense
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension dotjoshjohnson.xml
 code --install-extension eamodio.gitlens
+code --install-extension editorconfig.editorconfig
+code --install-extension eg2.vscode-npm-script
 code --install-extension emmanuelbeziat.vscode-great-icons
 code --install-extension esbenp.prettier-vscode
+code --install-extension firefox-devtools.vscode-firefox-debug
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension foxundermoon.shell-format
+code --install-extension glen-84.sass-lint
 code --install-extension hookyqr.beautify
 code --install-extension jkjustjoshing.vscode-text-pastry
 code --install-extension kenhowardpdx.vscode-gist
@@ -48,8 +53,11 @@ code --install-extension MaxvanderSchee.web-accessibility
 code --install-extension ms-vscode.sublime-keybindings
 code --install-extension oliversturm.fix-json
 code --install-extension ritwickdey.LiveServer
+code --install-extension sasa.vscode-sass-format
 code --install-extension shinnn.alex
 code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension syler.sass-indented
+code --install-extension tokoph.ghosttext
 code --install-extension travisthetechie.write-good-linter
 code --install-extension trongthanh.theme-boxythemekit
 code --install-extension yzhang.markdown-all-in-one
@@ -69,7 +77,7 @@ npm config set prefix '~/.npm-global'
 npm i -g npm@latest
 rm -rf ~/n/bin/npm
 ln -s ~/.npm-global/bin/npm ~/n/bin/npm
-npm i -g write-good alex eslint pure-prompt serve prettier svgo fast-cli
+npm i -g write-good alex eslint pure-prompt serve prettier svgo fast-cli detox-cli nodemon sass
 
 echo "→ Homebrewing less important stuff…"
 
