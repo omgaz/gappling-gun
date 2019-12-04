@@ -18,12 +18,15 @@ sudo chown -R $(whoami) /usr/local
 
 sudo xcode-select --reset
 
-echo "→ Installing Homebrew Packages…"
+echo "→ Homebrewing important stuff…"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew tap homebrew/cask-fonts
-brew install git graphicsmagick node
-brew cask install appcleaner beyond-compare docker firefox font-cascadia font-hack font-montserrat font-roboto font-roboto-mono github gitup google-chrome imagealpha imageoptim java licecap postbox slack typora ubar virtualbox visual-studio-code
+brew install n git
+brew cask install firefox font-cascadia font-hack font-montserrat font-roboto font-roboto-mono github google-chrome slack
+
+echo "  … visual studio code"
+brew cask install visual-studio-code
 
 curl -fsSL $vscodesettings >>~/Library/Application Support/Code/User/settings.json
 
@@ -57,13 +60,22 @@ git config --global user.email $email
 git config --global credential.helper osxkeychain
 
 echo "→ Installing NodeJS/NPM stuff…"
+n 8
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
-npm i -g n npm@latest
-n lts
+npm i -g npm@latest
 rm -rf ~/n/bin/npm
 ln -s ~/.npm-global/bin/npm ~/n/bin/npm
 npm i -g write-good alex eslint pure-prompt serve prettier svgo fast-cli
+
+echo "→ Homebrewing less important stuff…"
+
+brew cask install appcleaner beyond-compare docker imagealpha imageoptim typora ubar
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
+brew install watchman redis graphicsmagick
+
+ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 
 materVer=$(curl https://api.github.com/repos/jasonlong/mater/releases/latest -s \
   | grep tag_name \
@@ -77,6 +89,12 @@ curl -# -L -O https://github.com/jasonlong/mater/releases/download/$materVer/Mat
 unzip -q *.zip
 mv *.app /Applications
 rm -rf Mater-darwin-x64.zip
+
+echo "→ Installing AWS CLI…"
+
+curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-macos.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 
 echo "→ Installing Oh My Zsh…"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
