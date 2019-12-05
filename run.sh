@@ -18,10 +18,15 @@ sudo chown -R $(whoami) /usr/local
 
 sudo xcode-select --reset
 
+# Allow apps to be installed from anywhere, this is required so vscode can install extensions
+sudo spctl --master-disable
+
 echo "→ Homebrewing important stuff…"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew tap homebrew/cask-fonts
+mkdir $HOME/.n
+export N_PREFIX=$HOME/.n
 brew install n git
 brew cask install firefox font-cascadia font-hack font-montserrat font-roboto font-roboto-mono github google-chrome slack
 
@@ -74,6 +79,7 @@ echo "→ Installing NodeJS/NPM stuff…"
 n 8
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
+export PATH=$N_PREFIX/bin:$HOME/.npm-global/bin:$PATH
 npm i -g npm@latest
 rm -rf ~/n/bin/npm
 ln -s ~/.npm-global/bin/npm ~/n/bin/npm
@@ -106,6 +112,9 @@ echo "→ Installing AWS CLI…"
 curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-macos.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+
+# Re-enable gatekeeper for mac
+sudo spctl --master-enable
 
 echo "→ Installing Oh My Zsh…"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
