@@ -83,6 +83,8 @@ export PATH=$N_PREFIX/bin:$HOME/.npm-global/bin:$PATH
 npm i -g npm@latest
 rm -rf ~/n/bin/npm
 ln -s ~/.npm-global/bin/npm ~/n/bin/npm
+# set `--no-optional` globally for `npm install`
+npm set optional false
 npm i -g write-good alex eslint pure-prompt serve prettier svgo fast-cli detox-cli nodemon sass
 
 echo "→ Homebrewing less important stuff…"
