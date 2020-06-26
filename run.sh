@@ -1,4 +1,5 @@
 # #!/bin/bash
+
 echo "For git setup what's your name:"
 read name
 echo "… and your email address?"
@@ -6,15 +7,6 @@ read email
 echo "Cool, and your password for those sudo commands:"
 sudo -v
 echo "Awesome, let's go!"
-echo "Copy and paste your .zshrc url from gist"
-echo "Enter your .zshrc gist url [https://gist.githubusercontent.com/omgaz/61819cd3f8e9c19cdee8cffdfb794cac/raw/.zshrc]: "
-read zshrcraw
-zshrcraw=${zshrcraw:-https://gist.githubusercontent.com/omgaz/61819cd3f8e9c19cdee8cffdfb794cac/raw/.zshrc}
-echo "Copy and paste your vscode settings url from gist [https://gist.githubusercontent.com/omgaz/759a7100095c2a3001d6ccc541b1e50e/raw/settings.json]: "
-read vscodesettings
-vscodesettings=${vscodesettings:-https://gist.githubusercontent.com/omgaz/759a7100095c2a3001d6ccc541b1e50e/raw/settings.json}
-
-sudo chown -R $(whoami) /usr/local
 
 sudo xcode-select --reset
 
@@ -22,7 +14,7 @@ sudo xcode-select --reset
 sudo spctl --master-disable
 
 echo "→ Homebrewing important stuff…"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew update
 brew tap homebrew/cask-fonts
 mkdir $HOME/.n
@@ -33,43 +25,31 @@ brew cask install firefox font-cascadia font-hack font-montserrat font-roboto fo
 echo "  … visual studio code"
 brew cask install visual-studio-code
 
-curl -fsSL $vscodesettings >>"~/Library/Application Support/Code/User/settings.json"
-
 code --install-extension aaron-bond.better-comments
-code --install-extension aeschli.vscode-css-formatter
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension dbaeumer.vscode-eslint
-code --install-extension dotjoshjohnson.xml
 code --install-extension eamodio.gitlens
 code --install-extension editorconfig.editorconfig
 code --install-extension eg2.vscode-npm-script
-code --install-extension emmanuelbeziat.vscode-great-icons
 code --install-extension esbenp.prettier-vscode
 code --install-extension firefox-devtools.vscode-firefox-debug
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension foxundermoon.shell-format
-code --install-extension glen-84.sass-lint
-code --install-extension hookyqr.beautify
 code --install-extension jkjustjoshing.vscode-text-pastry
-code --install-extension kenhowardpdx.vscode-gist
 code --install-extension kisstkondoros.vscode-codemetrics
 code --install-extension MaxvanderSchee.web-accessibility
 code --install-extension ms-vscode.sublime-keybindings
 code --install-extension oliversturm.fix-json
-code --install-extension ritwickdey.LiveServer
-code --install-extension sasa.vscode-sass-format
 code --install-extension shinnn.alex
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension syler.sass-indented
-code --install-extension tokoph.ghosttext
 code --install-extension travisthetechie.write-good-linter
-code --install-extension trongthanh.theme-boxythemekit
 code --install-extension yzhang.markdown-all-in-one
 
 echo "→ Configuring Git…"
 git config --global user.name $name
-git config --global user.email $email
+git config --global user.email $email # "<username>@users.noreply.github.com"
 git config --global credential.helper osxkeychain
 touch ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
@@ -85,16 +65,15 @@ rm -rf ~/n/bin/npm
 ln -s ~/.npm-global/bin/npm ~/n/bin/npm
 # set `--no-optional` globally for `npm install`
 npm set optional false
-npm i -g write-good alex eslint pure-prompt serve prettier svgo fast-cli detox-cli nodemon sass
+
+npm i -g write-good alex serve prettier svgo fast-cli nodemon
 
 echo "→ Homebrewing less important stuff…"
 
-brew cask install appcleaner beyond-compare docker imagealpha imageoptim typora ubar
+brew cask install appcleaner beyond-compare docker imagealpha imageoptim joplin
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8 react-native-debugger
 brew install watchman redis graphicsmagick
-
-ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 
 materVer=$(curl https://api.github.com/repos/jasonlong/mater/releases/latest -s |
   grep tag_name |
@@ -108,20 +87,13 @@ curl -# -L -O https://github.com/jasonlong/mater/releases/download/$materVer/Mat
 unzip -q *.zip
 mv *.app /Applications
 rm -rf Mater-darwin-x64.zip
+rm -rf Mater-darwin-x64
+rm -rf __MACOSX
 
-echo "→ Installing AWS CLI…"
-
-curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-macos.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+brew services start redis
 
 # Re-enable gatekeeper for mac
 sudo spctl --master-enable
 
 echo "→ Installing Oh My Zsh…"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-curl -fsSL $zshrcraw >>~/.zshrc
-zsh
-
-echo "✓ Complete."
