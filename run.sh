@@ -21,6 +21,7 @@ mkdir $HOME/.n
 export N_PREFIX=$HOME/.n
 brew install n git
 brew cask install firefox font-cascadia font-hack font-montserrat font-roboto font-roboto-mono github google-chrome slack
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize qlvideo webpquicklook
 
 echo "  … visual studio code"
 brew cask install visual-studio-code
