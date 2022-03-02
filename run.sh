@@ -52,6 +52,7 @@ brew install --cask \
   font-roboto-mono \
   github \
   google-chrome slack \
+  iterm2 \
   visual-studio-code
 
 ################################################################################################
@@ -61,6 +62,7 @@ echo "→ Configuring Git…"
 git config --global user.name $name
 git config --global user.email $email # "<username>@users.noreply.github.com"
 git config --global credential.helper osxkeychain
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 touch ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
@@ -150,6 +152,7 @@ code --install-extension \
   RobbOwen.synthwave-vscode \
   samundrak.esdoc-mdn \
   Semgrep.semgrep \
+  sirmspencer.vscode-autohide \
   streetsidesoftware.code-spell-checker \
   svelte.svelte-vscode \
   syler.sass-indented \
@@ -160,6 +163,7 @@ code --install-extension \
   travisthetechie.write-good-linter \
   usernamehw.errorlens \
   VisualStudioExptTeam.vscodeintellicode \
+  wix.vscode-import-cost \
   wmaurer.change-case \
   yzhang.markdown-all-in-one \
   zaaack.markdown-editor
@@ -182,22 +186,29 @@ npm set optional false
 
 echo "→ Homebrewing less important stuff…"
 
-brew tap AdoptOpenJDK/openjdk
+brew tap homebrew/cask-versions
 brew install --cask \
-  adoptopenjdk8 \
   appcleaner \
   beyond-compare \
   docker \
+  font-hack-nerd-font \
   imagealpha \
   imageoptim \
   joplin \
-  react-native-debugger
+  postman \
+  react-native-debugger \
+  signal \
+  slack \
+  sublime-text \
+  temurin8 # openjdk
 
 brew install \
   graphicsmagick \
   redis \
   jq \
-  watchman
+  watchman \
+  zsh-completions \
+  zsh-syntax-highlighting
 
 ################################################################################################
 
@@ -226,6 +237,19 @@ ghInstall jasonlong/mater
 
 ################################################################################################
 
+# show hidden files
+defaults write com.apple.finder AppleShowAllFiles YES
+
+# show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+killall Finder
+
+################################################################################################
+
 brew services start redis
 brew services start watchman
 
@@ -236,3 +260,6 @@ sudo spctl --master-enable
 
 echo "→ Installing Oh My Zsh…"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Manually, after:
+# git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
