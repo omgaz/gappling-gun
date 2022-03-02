@@ -26,15 +26,9 @@ Then enter some details to give access and options to the script.
 - Graphics Magick
 - Image Alpha
 - Image Optim
-- LiceCap
-- Mater
 - NodeJS
 - NPM
 - Oh My Zsh
-- Postbox
-- Typora
-- uBar
-- Virtual Box
 - Visual Studio Code (and extensions)
 
 ## What's not included
